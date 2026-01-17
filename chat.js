@@ -1,5 +1,5 @@
 // Конфигурация API
-const API_KEY = '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';
+const API_KEY = process.env.API_KEY;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4.1-mini';
 const MAX_TOKENS = 300;
