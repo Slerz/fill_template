@@ -1,7 +1,7 @@
 // Конфигурация API
-const API_KEY = process.env.API_KEY;
-const API_URL = 'https://api.openai.com/v1/chat/completions';
-const MODEL = 'gpt-4.1-mini';
+// Используем Vercel API route вместо прямого обращения к OpenAI
+const API_URL = '/api/chat'; // Vercel Serverless Function
+const MODEL = 'gpt-4o-mini';
 const MAX_TOKENS = 300;
 const MAX_HISTORY = 10; // Сохраняем только 10 последних сообщений
 
@@ -156,13 +156,12 @@ async function handleSubmit(e) {
     }
 }
 
-// Отправка сообщения к API
+// Отправка сообщения к API через Vercel Serverless Function
 async function sendMessageToAPI(history) {
     const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             model: MODEL,

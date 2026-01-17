@@ -7,7 +7,4 @@ node_modules/
 .env.local
 .env.*.local
 
-# API keys and secrets (если создадите файл для ключей)
-config.js
-secrets.js
 
